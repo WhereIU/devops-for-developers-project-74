@@ -6,7 +6,7 @@ IMAGE_NAME := $(DOCKER_HUB_USERNAME)/devops-for-developers-project-74
 
 init:
 	@if [ ! -d "app" ]; then \
-		git clone git@github.com:hexlet-components/js-fastify-blog.git app; \
+		git clone https://github.com/hexlet-components/js-fastify-blog app; \
 		rm -rf app/.git; \
 	fi
 
