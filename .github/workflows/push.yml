@@ -29,11 +29,6 @@ jobs:
     - name: Run tests with Docker Compose
       run: |
         make ci-test
-        
-    - name: Build production image
-      if: success() && github.event_name != 'pull_request'
-      run: |
-        make ci-build
 
   deploy:
     needs: test
