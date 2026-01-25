@@ -4,13 +4,7 @@ DOCKER_COMPOSE := $(shell command -v docker-compose 2>/dev/null || echo "docker 
 DOCKER_HUB_USERNAME := voracitymajo
 IMAGE_NAME := $(DOCKER_HUB_USERNAME)/devops-for-developers-project-74
 
-init:
-	@if [ ! -d "app" ]; then \
-		git clone https://github.com/hexlet-components/js-fastify-blog app; \
-		rm -rf app/.git; \
-	fi
-
-setup: init
+setup:
 	$(DOCKER_COMPOSE) run --rm app make setup
 
 build:
