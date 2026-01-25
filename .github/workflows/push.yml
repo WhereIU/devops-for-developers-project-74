@@ -7,9 +7,7 @@ on:
     branches: [ main, master ]
 
 env:
-  REGISTRY: docker.io
-  REPO_NAME: 'devops-for-developers-project-74'
-  IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/${{ env.REPO_NAME }}
+  IMAGE_NAME: 'devops-for-developers-project-74'
 
 jobs:
   test:
