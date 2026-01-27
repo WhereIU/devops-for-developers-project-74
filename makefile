@@ -17,7 +17,7 @@ push: build
 	$(DOCKER_COMPOSE) -f docker-compose.yml push app
 
 run-local:
-	docker run -p 8080:8080 -e NODE_ENV=development $(IMAGE_NAME) make dev
+	docker run -p 8080:8080 --rm -e NODE_ENV=development $(IMAGE_NAME) make dev
 
 dev:
 	$(DOCKER_COMPOSE) up
@@ -34,8 +34,7 @@ stop:
 clean:
 	$(DOCKER_COMPOSE) down -v
 	docker system prune -f
-	rm -rf app/
-	
+
 ci-test: test
 
 ci-build:
