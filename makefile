@@ -16,16 +16,13 @@ login:
 push: build
 	$(DOCKER_COMPOSE) -f docker-compose.yml push app
 
-run-local:
-	docker run -p 8080:8080 --rm -e NODE_ENV=development $(IMAGE_NAME) make dev
-
-dev:
+dev: stop
 	$(DOCKER_COMPOSE) up
 
-test:
+test: stop
 	$(DOCKER_COMPOSE) -f docker-compose.yml up --abort-on-container-exit --exit-code-from app
 
-start:
+start: stop
 	$(DOCKER_COMPOSE) -f docker-compose.yml up --abort-on-container-exit --exit-code-from app
 
 stop:
