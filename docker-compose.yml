@@ -8,8 +8,6 @@ services:
     image: voracitymajo/devops-for-developers-project-74
     working_dir: /app
     command: make test
-    ports:
-      - "8080:8080"
     depends_on:
       db:
         condition: service_healthy
